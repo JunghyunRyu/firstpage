@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hacker News 스타일 데모</title>
+  <style>
+    :root {
+      --hn-orange: #ff6600;
+      --hn-cream: #f6f6ef;
+      --text: #111;
+      --muted: #828282;
+    }
+
+    html, body { margin: 0; padding: 0; background: var(--hn-cream); font: 13px/1.4 Verdana, Geneva, Tahoma, sans-serif; color: var(--text); }
+    a { color: #000; }
+
+    .wrapper { max-width: 1000px; margin: 0 auto; }
+
+    /* Header */
+    .header { background: var(--hn-orange); }
+    .header-inner { display: flex; align-items: center; gap: 10px; padding: 3px 6px; }
+    .logo { width: 18px; height: 18px; display: grid; place-items: center; background: #fff; color: var(--hn-orange); font-weight: 700; border: 1px solid #fff; }
+    .brand { font-weight: 700; }
+    .nav { display: flex; gap: 8px; }
+    .nav a { text-decoration: none; }
+    .spacer { flex: 1; }
+    .login a { text-decoration: none; }
+
+    /* List */
+    .content { padding: 10px 0 40px; }
+    ol.stories { list-style: none; counter-reset: item; margin: 0; padding: 0; }
+    ol.stories > li { display: grid; grid-template-columns: 36px 1fr; gap: 8px; padding: 4px 0; }
+    ol.stories > li::before { counter-increment: item; content: counter(item) "."; color: var(--muted); text-align: right; padding-right: 4px; }
+
+    .story { display: flex; flex-direction: column; gap: 2px; }
+    .row { display: grid; grid-template-columns: 12px 1fr; column-gap: 6px; align-items: start; }
+    .upvote { width: 0; height: 0; border-left: 6px solid transparent; border-right: 6px solid transparent; border-bottom: 8px solid #c0c0c0; margin-top: 5px; }
+    .title { display: flex; align-items: baseline; gap: 6px; }
+    .title a { text-decoration: none; }
+    .title a:hover { text-decoration: underline; }
+    .site { color: var(--muted); font-size: 11px; }
+    .subtext { color: var(--muted); font-size: 11px; }
+    .subtext a { color: var(--muted); text-decoration: none; }
+    .subtext a:hover { text-decoration: underline; }
+
+    .more { padding: 10px 0 0 36px; }
+    .more a { text-decoration: none; }
+
+    .footer { border-top: 2px solid var(--hn-orange); margin-top: 20px; padding: 10px 0; text-align: center; color: var(--muted); font-size: 11px; }
+
+    @media (max-width: 640px) {
+      .header-inner { flex-wrap: wrap; }
+      ol.stories > li { grid-template-columns: 28px 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <header class="header" role="banner">
+      <div class="header-inner">
+        <div class="logo" aria-hidden="true">Y</div>
+        <div class="brand">Hacker News</div>
+        <nav class="nav" aria-label="Global">
+          <a href="#">new</a> |
+          <a href="#">past</a> |
+          <a href="#">comments</a> |
+          <a href="#">ask</a> |
+          <a href="#">show</a> |
+          <a href="#">jobs</a> |
+          <a href="#">submit</a>
+        </nav>
+        <div class="spacer"></div>
+        <div class="login"><a href="#">login</a></div>
+      </div>
+    </header>
+
+    <main class="content">
+      <ol class="stories" id="stories">
+        <!-- 자바스크립트로 렌더링됩니다. 정적 HTML로 쓰고 싶으면 아래 <script> 대신 <li>를 그대로 채우세요. -->
+      </ol>
+      <div class="more"><a href="#">More</a></div>
+    </main>
+
+    <footer class="footer">
+      Guidelines | FAQ | Lists | API | Security | Legal | Apply to YC | Contact
+    </footer>
+  </div>
+
+  <script>
+    // 샘플 데이터 (원하는 텍스트로 수정 가능)
+    const items = [
+      { t: "A Dev Compass – Programming Philosophy Quiz", s: "treforsm.github.io", p: 145, by: "toborow", time: "2 hours ago", c: 158 },
+      { t: "Node.js can now execute TypeScript files", s: "github.com", p: 310, by: "n3wt0n", time: "1 hour ago", c: 289 },
+      { t: "Visualising how clone random GUIDs come to being the same", s: "guidsham.com", p: 62, by: "zackw", time: "3 hours ago", c: 42 },
+      { t: "15 years on my home lab in 133 comics", s: "matt.life", p: 120, by: "mattlife", time: "4 hours ago", c: 66 },
+      { t: "A postgres lesson from building an X-Plane engine with SQLite", s: "finkelstein.fr", p: 97, by: "fink", time: "5 hours ago", c: 51 },
+      { t: "SuperSight: A graphic and telemetry renderer for Broderbund's 'Stunts'", s: "mametto.net", p: 88, by: "mame", time: "2 hours ago", c: 24 },
+      { t: "An Argument for Increasing TCP's Initial Congestion Window Again", s: "ideark.net", p: 73, by: "ideark", time: "6 hours ago", c: 39 },
+      { t: "A Pragmatic Approach to Offline Machine Learning", s: "orgy.io", p: 101, by: "pragml", time: "8 hours ago", c: 52 },
+      { t: "Hyundai wants Ioniq 5 customers to pay for cybersecurity patch", s: "neowin.net", p: 189, by: "moch", time: "5 hours ago", c: 172 },
+      { t: "The A* Consensus Algorithm (2015)", s: "raft.github.io", p: 131, by: "raftfan", time: "11 hours ago", c: 121 },
+      { t: "A Proof that 0/0 is the Mathematically Optimal Way", s: "pudding.cool", p: 205, by: "pudding", time: "9 hours ago", c: 185 },
+      { t: "Pleistohippo", s: "wikipedia.org", p: 24, by: "ply", time: "9 hours ago", c: 19 },
+      { t: "That 16B password story (aka 'total troll')", s: "tryonturf.com", p: 72, by: "tryon", time: "10 hours ago", c: 60 },
+      { t: "IP over Avian Networks", s: "rfc1149.net", p: 66, by: "birdnet", time: "12 hours ago", c: 37 },
+      { t: "GDPR means nothing: chat control omertà survives the EU [video]", s: "youtube.com", p: 206, by: "privacy", time: "7 hours ago", c: 175 },
+      { t: "Show HN: unsafeth – tiny web server from scratch in C, on an orange pi", s: "unsafehttp.benren.au", p: 96, by: "benren", time: "1 hour ago", c: 63 },
+      { t: "A Lisp in a Day", s: "github.com/cbot", p: 98, by: "cbot", time: "10 hours ago", c: 41 },
+      { t: "Allowing Mayand Clients as Non-Root Users on Yoto", s: "embeddeduse.com", p: 59, by: "sator", time: "6 hours ago", c: 22 },
+      { t: "Living with Williams Syndrome, the 'opposite of autism' (2014)", s: "bbc.com", p: 140, by: "reporter", time: "11 hours ago", c: 119 },
+      { t: "Princeton Energy's battery recycling tech recovers 97% of lithium-ion material", s: "energy-reporters.com", p: 90, by: "princeton", time: "12 hours ago", c: 70 },
+      { t: "A Postgres for Developers", s: "pganthology.dev", p: 103, by: "pgdev", time: "2 hours ago", c: 48 },
+      { t: "Passkeys on iOS 18.1", s: "apple.com", p: 53, by: "fruit", time: "7 hours ago", c: 35 },
+      { t: "A Counting Words at SIMD Speed", s: "chepurnoy.dev", p: 81, by: "chep", time: "3 hours ago", c: 44 },
+      { t: "Count the obstacles in HTML5 Canvas", s: "webgl-lab.com", p: 36, by: "skia", time: "5 hours ago", c: 16 },
+      { t: "A list of things that don’t scale, and then don't scale", s: "derwkd.medium.com", p: 77, by: "derwkd", time: "9 hours ago", c: 33 },
+      { t: "Writing a competitive BZip2 encoder in Ada from scratch in a few days – part 2", s: "gautiersblog.blogspot.com", p: 64, by: "gautier", time: "2 hours ago", c: 29 },
+      { t: "A tiny LLM to add jokes because they avoid surprises", s: "danfabula.medium.com", p: 45, by: "danf", time: "3 hours ago", c: 21 },
+      { t: "A single lock of hair could rewrite what we know about tuna record-keeping", s: "science.org", p: 85, by: "science", time: "8 hours ago", c: 54 },
+      { t: "Show HN: Live – Terminal eBook Reader with Text-to-Speech", s: "github.com/superstarryeyes", p: 112, by: "super", time: "1 hour ago", c: 68 },
+      { t: "Migrating Postgres extensions with zero downtime", s: "tison.dev", p: 52, by: "tison", time: "6 hours ago", c: 25 },
+    ];
+
+    const list = document.getElementById('stories');
+
+    for (const item of items) {
+      const li = document.createElement('li');
+      li.innerHTML = `
+        <div class="story">
+          <div class="row">
+            <div class="upvote" aria-hidden="true"></div>
+            <div class="title">
+              <a href="#" rel="noopener">${item.t}</a>
+              <span class="site">(${item.s})</span>
+            </div>
+          </div>
+          <div class="subtext">${item.p} points by <a href="#">${item.by}</a> | <a href="#">${item.time}</a> | <a href="#">${item.c} comments</a></div>
+        </div>`;
+      list.appendChild(li);
+    }
+  </script>
+</body>
+</html>
