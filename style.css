@@ -1,0 +1,74 @@
+/* Reset */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  
+  /* body는 사이트를 중앙 정렬 */
+  body {
+    display: flex;
+    justify-content: center;
+    background: #eaeaea;
+    overflow-x: auto; /* 창이 좁아지면 가로 스크롤 발생 */
+  }
+  
+  /* 컨테이너: 항상 1280px 고정폭 */
+  .container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 1280px; /* 고정 */
+    background: #fff;
+  }
+  
+  /* 헤더 */
+  header {
+    height: 200px;
+    background: #4A90E2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar a:hover {
+    color: #FFD700;
+  }
+  
+  /* 메인 콘텐츠 */
+  main {
+    flex: 1;
+    background: #F5F5F5;
+    padding: 20px;
+    box-sizing: border-box;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  
+  /* 푸터 */
+  footer {
+    height: 200px;
+    background: #333;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+  }
+  
