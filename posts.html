@@ -3,61 +3,147 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>소식 - Fixed Width Layout</title>
+  <title>소식 - NomadVN</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
   <div class="container">
     <!-- 헤더 -->
     <header>
       <nav class="navbar">
+        <a href="index.html" class="nav-brand">
+          <span class="material-icons">explore</span>
+          <span>NomadVN</span>
+        </a>
         <ul>
-          <li><a href="index.html">홈</a></li>
-          <li><a href="about.html">소개</a></li>
-          <li><a href="posts.html" class="active">소식</a></li>
+          <li><a href="index.html" class="ripple">홈</a></li>
+          <li><a href="about.html" class="ripple">소개</a></li>
+          <li><a href="posts.html" class="active ripple">소식</a></li>
         </ul>
       </nav>
     </header>
 
     <!-- 메인 콘텐츠 -->
     <main>
-      <h1>소식</h1>
+      <div class="posts-hero">
+        <h1>베트남 여행 소식</h1>
+        <p class="posts-subtitle">최신 여행 정보, 이벤트, 팁을 확인하세요</p>
+      </div>
+
       <div class="posts-container">
         <article class="post">
-          <h2>첫 번째 소식 제목</h2>
-          <div class="post-meta">
-            <span class="date">2024년 1월 15일</span>
-            <span class="category">공지사항</span>
+          <div class="post-header">
+            <div class="post-meta">
+              <span class="material-icons">schedule</span>
+              <span class="date">2024년 1월 15일</span>
+              <span class="category">공지사항</span>
+            </div>
+            <h2>2024년 베트남 여행 트렌드 리포트</h2>
           </div>
-          <p>첫 번째 소식의 내용입니다. 여기에 소식 내용이 들어갑니다.</p>
-          <a href="#" class="read-more">자세히 보기</a>
+          <p>2024년 베트남을 찾는 여행자들의 새로운 트렌드를 분석한 리포트를 발표했습니다. 지속가능한 여행, 로컬 문화 체험, 디지털 노마드 라이프스타일이 주요 키워드로 떠오르고 있습니다.</p>
+          <div class="post-tags">
+            <span class="tag">트렌드</span>
+            <span class="tag">2024</span>
+            <span class="tag">여행</span>
+          </div>
+          <a href="#" class="read-more">
+            <span>자세히 보기</span>
+            <span class="material-icons">arrow_forward</span>
+          </a>
         </article>
 
         <article class="post">
-          <h2>두 번째 소식 제목</h2>
-          <div class="post-meta">
-            <span class="date">2024년 1월 10일</span>
-            <span class="category">업데이트</span>
+          <div class="post-header">
+            <div class="post-meta">
+              <span class="material-icons">schedule</span>
+              <span class="date">2024년 1월 10일</span>
+              <span class="category">업데이트</span>
+            </div>
+            <h2>하노이 올드쿼터 완전 가이드 업데이트</h2>
           </div>
-          <p>두 번째 소식의 내용입니다. 새로운 기능이나 업데이트 소식을 전달합니다.</p>
-          <a href="#" class="read-more">자세히 보기</a>
+          <p>하노이 올드쿼터의 최신 맛집, 숙박, 관광지 정보를 포함한 완전 가이드를 업데이트했습니다. 현지인들이 추천하는 숨겨진 명소들과 최신 오픈한 카페, 레스토랑 정보를 추가했습니다.</p>
+          <div class="post-tags">
+            <span class="tag">하노이</span>
+            <span class="tag">올드쿼터</span>
+            <span class="tag">가이드</span>
+          </div>
+          <a href="#" class="read-more">
+            <span>자세히 보기</span>
+            <span class="material-icons">arrow_forward</span>
+          </a>
         </article>
 
         <article class="post">
-          <h2>세 번째 소식 제목</h2>
-          <div class="post-meta">
-            <span class="date">2024년 1월 5일</span>
-            <span class="category">이벤트</span>
+          <div class="post-header">
+            <div class="post-meta">
+              <span class="material-icons">schedule</span>
+              <span class="date">2024년 1월 5일</span>
+              <span class="category">이벤트</span>
+            </div>
+            <h2>베트남 봄 축제 (Tet) 특별 이벤트 안내</h2>
           </div>
-          <p>세 번째 소식의 내용입니다. 이벤트나 특별한 소식을 전달합니다.</p>
-          <a href="#" class="read-more">자세히 보기</a>
+          <p>베트남의 가장 큰 축제인 Tet(봄 축제) 기간 동안 특별한 이벤트들을 준비했습니다. 전통 음식 체험, 민속 공연 관람, 현지 가족과 함께하는 Tet 준비 과정을 경험할 수 있는 특별 프로그램을 소개합니다.</p>
+          <div class="post-tags">
+            <span class="tag">Tet</span>
+            <span class="tag">봄축제</span>
+            <span class="tag">이벤트</span>
+          </div>
+          <a href="#" class="read-more">
+            <span>자세히 보기</span>
+            <span class="material-icons">arrow_forward</span>
+          </a>
         </article>
+
+        <article class="post">
+          <div class="post-header">
+            <div class="post-meta">
+              <span class="material-icons">schedule</span>
+              <span class="date">2024년 1월 1일</span>
+              <span class="category">팁</span>
+            </div>
+            <h2>베트남 여행 시 필수 앱 10선</h2>
+          </div>
+          <p>베트남 여행을 더욱 편리하게 만들어주는 필수 앱들을 소개합니다. 교통, 음식, 숙박, 번역 등 여행의 모든 순간에 도움이 되는 앱들을 카테고리별로 정리했습니다.</p>
+          <div class="post-tags">
+            <span class="tag">앱</span>
+            <span class="tag">팁</span>
+            <span class="tag">편의</span>
+          </div>
+          <a href="#" class="read-more">
+            <span>자세히 보기</span>
+            <span class="material-icons">arrow_forward</span>
+          </a>
+        </article>
+      </div>
+
+      <div class="newsletter-section">
+        <div class="card newsletter-card">
+          <div class="newsletter-icon">
+            <span class="material-icons">notifications</span>
+          </div>
+          <h2>최신 소식 받아보기</h2>
+          <p>베트남 여행 관련 최신 정보와 특별한 이벤트 소식을 이메일로 받아보세요.</p>
+          <div class="newsletter-form">
+            <input type="email" placeholder="이메일 주소를 입력하세요" class="newsletter-input">
+            <button class="btn btn-primary">
+              <span class="material-icons">send</span>
+              구독하기
+            </button>
+          </div>
+        </div>
       </div>
     </main>
 
     <!-- 푸터 -->
     <footer>
-      <p>© 2005 nomadvn.com All rights reserved.</p>
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="material-icons">explore</span>
+          <span>NomadVN</span>
+        </div>
+        <p>© 2024 NomadVN. 베트남 여행의 모든 것을 담았습니다.</p>
+      </div>
     </footer>
   </div>
 </body>
